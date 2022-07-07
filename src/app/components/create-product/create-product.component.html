@@ -1,0 +1,36 @@
+<nav class="navbar navbar-light bg-light">
+  <a routerLink="" class="navbar-brand">Home</a>
+<!--  <a routerLink="create-product" class="navbar-brand">create</a>-->
+  <form class="form-inline">
+    <input class="form-control mr-sm-2" type="search" placeholder="Search" aria-label="Search">
+    <button class="btn btn-outline-success my-2 my-sm-0" type="submit">Search</button>
+  </form>
+</nav>
+<form class="form11" [formGroup]="form" (submit)="add()">
+  <h5>Name</h5>
+  <input type="text" formControlName = "name">
+  <h5>Price</h5>
+  <input type="text" formControlName = "price">
+  <h5>Description</h5><input type="text" formControlName = "description"><div><br></div>
+  <h5>Brand:<select formControlName = "brandId">
+    <option *ngFor="let brand of listBrand" [value]="brand.id">
+      {{brand.name}}
+    </option>
+  </select><br><br></h5>
+
+  <button style="margin-left: 160px" class="col-lg-3">Tạo</button><div><br></div>
+</form>
+<style>
+  input{
+    margin-left: 20px;
+    width: 370px;
+  }
+  .form11{
+    background-color: cadetblue;
+    margin-left:400px;
+    margin-right: 500px;
+    margin-top: 30px;
+    border-radius: 8px;
+    border: 2px solid blue;
+  }
+</style>
