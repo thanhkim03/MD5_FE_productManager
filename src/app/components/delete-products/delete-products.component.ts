@@ -2,6 +2,7 @@ import {Component, OnInit} from '@angular/core';
 import {ProductService} from "../../services/product.service";
 import {Product} from "../../models/product";
 import {ActivatedRoute, ParamMap, Router} from "@angular/router";
+import {FormControl, FormGroup} from "@angular/forms";
 
 @Component({
   selector: 'app-delete-products',
@@ -9,31 +10,38 @@ import {ActivatedRoute, ParamMap, Router} from "@angular/router";
   styleUrls: ['./delete-products.component.css']
 })
 export class DeleteProductsComponent implements OnInit {
-
+  id: any;
   products: any;
+
 
   constructor(private productService: ProductService,
               private router: Router,
               private activateRoute: ActivatedRoute,) {
-  }
-
-  ngOnInit(): void {
-    this.products = {
-      name: '', price: '', description: '', brand: {
-        id: "1"
-      }
-    }
-    this.activateRoute.paramMap.subscribe((paraMap: ParamMap) => {
-      const id = paraMap.get('id');
-      this.deletePost(id);
+    this.activateRoute.paramMap.subscribe((paramMap: ParamMap) => {
+      // @ts-ignore
+      this.id = +paramMap.get('id');
+      this.findById(this.id);
     });
   }
 
+  ngOnInit(): void {
+  }
   deletePost(id: any) {
-    this.productService.delete(id).subscribe(res => {
-      this.products = res;
-      console.log('Post deleted successfully!', res);
+    this.productService.delete(id).subscribe(() => {
+      this.router.navigate(['/']);
       alert("thành công")
     })
   }
+  findById(id: any) {
+    this.productService.getById(id).subscribe(data => {
+      console.log(data)
+      // @ts-ignore
+      this.products = new FormGroup({
+        name: new FormControl(data.name),
+        price: new FormControl(data.price),
+        description: new FormControl(data.description),
+        brandId: new FormControl(data.brand.id),
+      });
+    });
+}
 }

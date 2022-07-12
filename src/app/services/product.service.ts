@@ -13,6 +13,7 @@ export class ProductService {
 
   constructor(private httpClient: HttpClient) {
   }
+
   getAll(): Observable<any> {
     return this.httpClient.get(this.API_URL);
   }
@@ -25,13 +26,25 @@ export class ProductService {
     return this.httpClient.get(this.API_URL + `/${id}`);
   }
 
+  // getByName(name :any):Observable<any>{
+  //   return this.httpClient.get(this.API_URL+`/search?name=`+`${name}`)
+  // }
 
-  delete(id:number){
+  delete(id: number) {
     return this.httpClient.delete(this.API_URL + `/${id}`)
 
   }
+
   update(product: any, id: any): Observable<Product> {
     // @ts-ignore
-    return this.httpClient.put(this.API_URL+`/${id}`, product);
+    return this.httpClient.put(this.API_URL + `/${id}`, product);
+  }
+
+  sortByPrice(): Observable<any> {
+    return this.httpClient.get(this.API_URL + `/sortByPrice`)
+  }
+
+  sortByPriceDesc(): Observable<any> {
+    return this.httpClient.get(this.API_URL + `/sortByPriceDesc`)
   }
 }

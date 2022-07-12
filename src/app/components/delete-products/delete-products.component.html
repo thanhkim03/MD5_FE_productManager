@@ -1,8 +1,30 @@
-<nav class="navbar navbar-light bg-light">
-  <a routerLink="" class="navbar-brand">Home</a>
-  <a routerLink="create-product" class="navbar-brand">create</a>
-  <form class="form-inline">
-    <input class="form-control mr-sm-2" type="search" placeholder="Search" aria-label="Search">
-    <button class="btn btn-outline-success my-2 my-sm-0" type="submit">Search</button>
-  </form>
-</nav>
+
+<form class="form11" [formGroup]="products" (ngSubmit)="deletePost(id)">
+  <div><br></div><h2 style="margin-left: 150px">Delete</h2>
+  <input type="hidden" formControlName = "id">
+  <h5>__Name_____________________</h5>
+  <input type="text" formControlName = "name"><div><br></div>
+  <h5>__Price___________________________</h5>
+  <input type="text" formControlName = "price"><div><br></div>
+  <h5>__Description_________________________</h5>
+  <input type="text" formControlName = "description"><div><br></div>
+  <br>
+  <br>
+  <button style="margin-left: 100px;background-color: red;color: white" class="col-lg-3">Xóa</button>
+  <button routerLink="" style="margin-left: 20px;background-color: greenyellow;color: white" class="col-lg-3">Quay lại</button>
+  <div><br></div>
+</form>
+<style>
+  input{
+    margin-left: 20px;
+    width: 370px;
+  }
+  .form11{
+    background-color: cadetblue;
+    margin-left:400px;
+    margin-right: 500px;
+    margin-top: 30px;
+    border-radius: 8px;
+    border: 2px solid cornflowerblue;
+  }
+</style>

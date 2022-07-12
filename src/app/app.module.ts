@@ -19,7 +19,7 @@ import { DeleteProductsComponent } from './components/delete-products/delete-pro
     CreateProductComponent,
     SearchProductsComponent,
     EditProductComponent,
-    DeleteProductsComponent
+    DeleteProductsComponent,
   ],
   imports: [
     BrowserModule,
@@ -27,7 +27,7 @@ import { DeleteProductsComponent } from './components/delete-products/delete-pro
     HttpClientModule,
     ReactiveFormsModule,
   ],
-  providers: [],
+   providers: [],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

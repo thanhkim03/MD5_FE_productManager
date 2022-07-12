@@ -6,6 +6,7 @@ import {SearchProductsComponent} from "./components/search-products/search-produ
 import {DeleteProductsComponent} from "./components/delete-products/delete-products.component";
 import {EditProductComponent} from "./components/edit-product/edit-product.component";
 
+
 const routes: Routes = [
   {path:"",component:ListProductComponent},
   {path:"search-product/:id",component:SearchProductsComponent},

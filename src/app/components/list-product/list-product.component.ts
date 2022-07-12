@@ -21,7 +21,22 @@ export class ListProductComponent implements OnInit {
       console.log(result);
     }, error => {
       console.log(error)
+    });
+  }
+  sortByPrice(){
+    this.productService.sortByPrice().subscribe(result => {
+      this.list = result;
+      console.log(result);
+    }, error => {
+      console.log(error)
     })
   }
-
+  sortByPriceDesc(){
+    this.productService.sortByPriceDesc().subscribe(result => {
+      this.list = result;
+      console.log(result);
+    }, error => {
+      console.log(error)
+    })
+  }
 }

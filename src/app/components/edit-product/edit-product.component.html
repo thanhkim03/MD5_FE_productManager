@@ -1,20 +1,14 @@
-<nav class="navbar navbar-light bg-light">
-  <a routerLink="" class="navbar-brand">Home</a>
-  <a routerLink="create-product" class="navbar-brand">create</a>
-  <form class="form-inline">
-    <input class="form-control mr-sm-2" type="search" placeholder="Search" aria-label="Search">
-    <button class="btn btn-outline-success my-2 my-sm-0" type="submit">Search</button>
-  </form>
-</nav>
 
 <form class="form11" [formGroup]="form" (submit)="save()">
+  <div><br></div><h2 style="margin-left: 150px">Update</h2>
   <input type="hidden" formControlName = "id">
-  <h5>Name</h5>
-  <input type="text" formControlName = "name">
-  <h5>Price</h5>
-  <input type="text" formControlName = "price">
-  <h5>Description</h5>
+  <h5>__Name_____________________</h5>
+  <input type="text" formControlName = "name"><div><br></div>
+  <h5>__Price___________________________</h5>
+  <input type="text" formControlName = "price"><div><br></div>
+  <h5>__Description_________________________</h5>
   <input type="text" formControlName = "description"><div><br></div>
+  <br>
   <h6>Brand
     <select style="width: 340px" formControlName = "brandId">
       <option *ngFor="let brand of listBrand" [value]="brand.id">
@@ -24,7 +18,8 @@
   </h6>
 
   <br>
-  <button style="margin-left: 160px" class="col-lg-3">Tạo</button>
+  <button style="margin-left: 160px;background-color: goldenrod" class="col-lg-3">Sửa</button>
+  <div><br></div>
 </form>
 <style>
   input{

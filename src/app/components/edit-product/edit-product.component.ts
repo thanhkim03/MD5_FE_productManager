@@ -23,7 +23,8 @@ export class EditProductComponent implements OnInit {
   listBrand: Brand[] = [];
   constructor(private productService:ProductService,
               private activatedRoute: ActivatedRoute,
-              private brandService : BrandService) {}
+              private brandService : BrandService,
+              private router: Router,) {}
 
   ngOnInit(): void {
     this.brandService.findAll().subscribe((data) => {
@@ -57,6 +58,7 @@ export class EditProductComponent implements OnInit {
       }
     };
     this.productService.update( this.obj,this.id).subscribe(() => {
+      this.router.navigate(['/']);
       alert('Cập nhật thành công');
     }, e => {
       console.log(e);
